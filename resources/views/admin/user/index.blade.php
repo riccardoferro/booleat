@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('navcategory')
-<<<<<<< HEAD
     <a class="me-3" href="{{ url('admin/user') }}" style="color: orange"> PROFILO</a>
     @if (count($user->categories))
         <a class="me-3" href="{{ route('admin.categories.edit', $user->id) }}" style="color: orange"> CATEGORIE </a>
@@ -12,19 +11,6 @@
     @endif
     <a class="me-3" href="{{ url('#') }}" style="color: orange"> ORDINI </a>
     <a class="me-3" href="{{ url('#') }}" style="color: orange"> STATISTICHE </a>
-=======
-    <div class="t4-nav-items">
-        <a class="me-3" href="{{ url('admin/user') }}" style="color: orange"> PROFILO</a>
-        @if (count($user->categories))
-            <a class="me-3" href="{{ route('admin.categories.edit', $user->id) }}" style="color: orange"> CATEGORIE </a>
-        @else
-            <a class="me-3" href="{{ route('admin.categories.create', $user->id) }}" style="color: orange"> CATEGORIE </a>
-        @endif
-        <a class="me-3" href="{{ url('admin/plates') }}" style="color: orange">PIATTI</a>
-        <a class="me-3" href="{{ url('#') }}" style="color: orange"> ORDINI </a>
-        <a class="me-3" href="{{ url('#') }}" style="color: orange"> STATISTICHE </a>
-    </div>
->>>>>>> new-layouts
 @endsection
 
 @section('content')
