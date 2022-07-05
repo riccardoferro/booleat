@@ -85,7 +85,7 @@
                     <div
                       class="d-flex justify-content-between t4-w100 mt-2 mb-2"
                     >
-                      <div class="t4-w30">
+                      <div @click="removeItem(plate)" class="t4-w30">
                         <img class="t4-w80" src="/images/minus1.png" alt="" />
                       </div>
                       <div class="t4-w30 text-center">
@@ -97,7 +97,8 @@
                     </div>
 
                     <h6 class="t4-orange-text t4-fw-6">
-                      {{ plate.price }} &euro;
+                      {{ partialTotal(plate.price, count(cart, plate.id)) }}
+                      &euro;
                     </h6>
                   </div>
                   <div class="col-3">
@@ -186,9 +187,18 @@ export default {
     addItem(plate) {
       this.$emit("takeItem", plate);
     },
+    removeItem(plate) {
+      this.$emit("removeItem", plate);
+    },
     removeDuplicateObjectFromArray(array, key) {
       var check = new Set();
       return array.filter((obj) => !check.has(obj[key]) && check.add(obj[key]));
+    },
+
+    partialTotal(price, quantity) {
+      let total;
+      total = price * quantity;
+      return total;
     },
 
     count(arr, elem) {

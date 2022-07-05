@@ -141,8 +141,9 @@ export default {
   methods: {
     addItem(plate) {
       this.$emit("takeItem", plate);
-
-      console.log("carrello", this.cart);
+    },
+    removeItem(plate) {
+      this.$emit("removeItem", plate);
     },
   },
 };

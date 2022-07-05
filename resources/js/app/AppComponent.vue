@@ -1,9 +1,17 @@
 <template>
   <div>
     <div>
-      <HeaderComponent @takeItem="addItem" :cart="cart" />
+      <HeaderComponent
+        @removeItem="removeItem"
+        @takeItem="addItem"
+        :cart="cart"
+      />
 
-      <router-view @takeItem="addItem" :cart="cart"></router-view>
+      <router-view
+        @takeItem="addItem"
+        @removeItem="removeItem"
+        :cart="cart"
+      ></router-view>
     </div>
   </div>
 </template>
@@ -39,9 +47,25 @@ export default {
         }
       }
 
-      console.log("valore ", value);
-      console.log("id-user", value.user_id);
+      //   console.log("valore ", value);
+      //   console.log("id-user", value.user_id);
       // console.log("carrello",this.cart);
+    },
+    removeItem(plate) {
+      //   console.log("Piatto Rimosso", plate);
+      this.cart.every((element) => {
+        if (element.id == plate.id) {
+          console.log("elemento ciclato->", element);
+          console.log("index", this.cart.indexOf(element));
+          this.cart.slice(this.cart.indexOf(element), 1);
+          this.saveCart();
+          console.log(this.cart);
+          return true;
+        }
+        return false;
+      });
+      this.saveCart();
+      console.log(this.cart);
     },
 
     saveCart() {
@@ -65,3 +89,7 @@ export default {
 
 <style>
 </style>
+
+
+
+
