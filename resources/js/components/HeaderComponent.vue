@@ -51,7 +51,13 @@
 
             <!-- body della drop del carrello -->
             <div v-if="cart.length > 0" class="offcanvas-body">
-              <div v-for="(plate, index) in cart" :key="plate.id + index">
+              <div
+                v-for="(plate, index) in removeDuplicateObjectFromArray(
+                  cart,
+                  'id'
+                )"
+                :key="plate.id + `${index}`"
+              >
                 <!-- <div class="col-3">
                   <span> {{ plate.name }} </span>
                 </div>
@@ -76,6 +82,20 @@
                   </div>
                   <div class="col-3">
                     <h6>{{ plate.name }}</h6>
+                    <div
+                      class="d-flex justify-content-between t4-w100 mt-2 mb-2"
+                    >
+                      <div class="t4-w30">
+                        <img class="t4-w80" src="/images/minus1.png" alt="" />
+                      </div>
+                      <div class="t4-w30 text-center">
+                        {{ count(cart, plate.id) }}
+                      </div>
+                      <div @click="addItem(plate)" class="t4-w30">
+                        <img class="t4-w80" src="/images/plus1.png" alt="" />
+                      </div>
+                    </div>
+
                     <h6 class="t4-orange-text t4-fw-6">
                       {{ plate.price }} &euro;
                     </h6>
@@ -156,6 +176,32 @@ export default {
   name: "HeaderComponent",
   props: {
     cart: Array,
+  },
+  data() {
+    return {
+      newCart: [],
+    };
+  },
+  methods: {
+    addItem(plate) {
+      this.$emit("takeItem", plate);
+    },
+    removeDuplicateObjectFromArray(array, key) {
+      var check = new Set();
+      return array.filter((obj) => !check.has(obj[key]) && check.add(obj[key]));
+    },
+
+    count(arr, elem) {
+      let count = 0;
+      for (let index = 0; index < arr.length; index++) {
+        const element = arr[index].id;
+        if (element === elem) {
+          count++;
+        }
+      }
+
+      return count;
+    },
   },
 };
 </script>

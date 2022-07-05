@@ -1,10 +1,9 @@
 <template>
   <div>
     <div>
-      <HeaderComponent :cart="cart"/>
+      <HeaderComponent @takeItem="addItem" :cart="cart" />
 
-      <router-view @takeItem="addItem" :cart="cart" ></router-view>
-
+      <router-view @takeItem="addItem" :cart="cart"></router-view>
     </div>
   </div>
 </template>
@@ -17,55 +16,50 @@ export default {
   components: {
     HeaderComponent,
   },
-  data(){
-    return{
-      cart:[],
+  data() {
+    return {
+      cart: [],
       newPlate: null,
-    }
+    };
   },
 
   methods: {
+    // creazione oggetto
 
-    addItem(plate){
+    addItem(plate) {
       let value = plate;
 
-      if (this.cart.length == 0 && value ) {
+      if (this.cart.length == 0 && value) {
+        this.cart.push(value);
+        this.saveCart(this.cart);
+      } else {
+        if (value.user_id == this.cart[0].user_id) {
           this.cart.push(value);
           this.saveCart(this.cart);
-      }
-      else {
-          if (value.user_id == this.cart[0].user_id ){
-
-              this.cart.push(value);
-              this.saveCart(this.cart);
-
-          }
+        }
       }
 
-      console.log("valore ",value);
-      console.log("id-user",value.user_id);
+      console.log("valore ", value);
+      console.log("id-user", value.user_id);
       // console.log("carrello",this.cart);
     },
 
-    saveCart(){
+    saveCart() {
       const parsed = JSON.stringify(this.cart);
-      localStorage.setItem('cart',parsed);
-    }
-
+      localStorage.setItem("cart", parsed);
+    },
   },
 
-
-    mounted() {
-      if (localStorage.getItem('cart')) {
-          try{
-            this.cart = JSON.parse(localStorage.getItem('cart'));
-          }catch(error){
-            console.log(error);
-            localStorage.removeItem('cart');
-          }
+  mounted() {
+    if (localStorage.getItem("cart")) {
+      try {
+        this.cart = JSON.parse(localStorage.getItem("cart"));
+      } catch (error) {
+        console.log(error);
+        localStorage.removeItem("cart");
       }
-  }
-
+    }
+  },
 };
 </script>
 
