@@ -6088,11 +6088,12 @@ __webpack_require__.r(__webpack_exports__);
 
       if (string.includes("uploads")) {
         newString = "/storage/".concat(string);
+      } else if (string.includes("https")) {
+        return string;
       } else {
         newString = "/images/default-restaurant.jpeg";
+        return newString;
       }
-
-      return newString;
     },
     // Funzione immagine categoria
     categoryIcon: function categoryIcon(string) {
@@ -6321,13 +6322,11 @@ __webpack_require__.r(__webpack_exports__);
           value: this.categoriesArr
         }
       }).then(function (results) {
-        // console.log('dioooooo',results);
         if (results.status === 200) {
           _this.users = results.data.data;
           _this.nextPage = results.data.next_page_url;
           _this.prevPage = results.data.prev_page_url;
-          _this.last_page = results.data.last_page; // console.log('oooooooooooooooooo',this.last_page);
-
+          _this.last_page = results.data.last_page;
           _this.current_page = results.data.current_page; // console.log(this.users);
         }
       })["catch"](function (e) {
@@ -6353,11 +6352,12 @@ __webpack_require__.r(__webpack_exports__);
 
       if (string.includes("uploads")) {
         newString = "/storage/".concat(string);
+      } else if (string.includes("https")) {
+        return string;
       } else {
         newString = "/images/default-restaurant.jpeg";
+        return newString;
       }
-
-      return newString;
     },
     // Funzione immagine categoria
     categoryIcon: function categoryIcon(string) {
@@ -7264,8 +7264,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.prevPage = results.data.plates.prev_page_url;
           _this.last_page = results.data.plates.last_page;
           _this.current_page = results.data.plates.current_page;
-          _this.totalPages = results.data.plates.total; // console.log("piattiii",this.plates)
-
+          _this.totalPages = results.data.plates.total;
           _this.categories = _this.restaurant.categories; //   console.log('category'.)
         } // console.log(this.restaurant);
 
@@ -7292,11 +7291,12 @@ __webpack_require__.r(__webpack_exports__);
 
       if (string.includes("uploads")) {
         newString = "/storage/".concat(string);
+      } else if (string.includes("https")) {
+        return string;
       } else {
         newString = "/images/default-restaurant.jpeg";
+        return newString;
       }
-
-      return newString;
     },
     incr: function incr() {
       this.orederQuantity++;
@@ -71572,7 +71572,7 @@ var render = function () {
         0
       ),
       _vm._v(" "),
-      _vm.plates.length >= 1 && _vm.plates.length <= 3 && _vm.totalPages !== 1
+      _vm.last_page !== 1
         ? _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "d-flex justify-content-center pt-5" }, [
               _c(
@@ -88543,7 +88543,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Progetti PHP\booleat\booleat\resources\js\front-app.js */"./resources/js/front-app.js");
+module.exports = __webpack_require__(/*! C:\Users\crist\Desktop\Booleat\booleat\resources\js\front-app.js */"./resources/js/front-app.js");
 
 
 /***/ })

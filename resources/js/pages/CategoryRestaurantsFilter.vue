@@ -170,13 +170,11 @@ export default {
           },
         })
         .then((results) => {
-          // console.log('dioooooo',results);
           if (results.status === 200) {
             this.users = results.data.data;
             this.nextPage = results.data.next_page_url;
             this.prevPage = results.data.prev_page_url;
             this.last_page = results.data.last_page;
-            // console.log('oooooooooooooooooo',this.last_page);
             this.current_page = results.data.current_page;
             // console.log(this.users);
           }
@@ -203,12 +201,15 @@ export default {
     // Funzione per l'immagine profilo ristoratorante!
     imagePut(string) {
       let newString;
+
       if (string.includes("uploads")) {
         newString = `/storage/${string}`;
+      } else if (string.includes("https")) {
+        return string;
       } else {
         newString = `/images/default-restaurant.jpeg`;
+        return newString;
       }
-      return newString;
     },
 
     // Funzione immagine categoria

@@ -83,10 +83,12 @@ export default {
 
       if (string.includes("uploads")) {
         newString = `/storage/${string}`;
+      } else if (string.includes("https")) {
+        return string;
       } else {
         newString = `/images/default-restaurant.jpeg`;
+        return newString;
       }
-      return newString;
     },
 
     // Funzione immagine categoria

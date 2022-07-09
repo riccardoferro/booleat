@@ -21,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::with('categories')->get();
+        $users = User::with('categories')->take(10)->get();
 
         $result = ['results' => $users, 'success' => true];
         return response()->json($result);
@@ -55,13 +55,13 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
-    {   
+    {
 
         $user = User::where('slug', $slug)->with('categories')->first();
 
         $plates = $user->plates()->paginate(3);
 
-        $result = ['results' => $user,'plates' => $plates , 'success' => true];
+        $result = ['results' => $user, 'plates' => $plates, 'success' => true];
         return response()->json($result);
     }
 

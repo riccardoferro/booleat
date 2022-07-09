@@ -303,7 +303,6 @@ export default {
             this.last_page = results.data.plates.last_page;
             this.current_page = results.data.plates.current_page;
             this.totalPages = results.data.plates.total;
-            // console.log("piattiii",this.plates)
             this.categories = this.restaurant.categories; //   console.log('category'.)
           }
           // console.log(this.restaurant);
@@ -332,13 +331,17 @@ export default {
     },
     imagePut(string) {
       let newString;
+
       if (string.includes("uploads")) {
         newString = `/storage/${string}`;
+      } else if (string.includes("https")) {
+        return string;
       } else {
         newString = `/images/default-restaurant.jpeg`;
+        return newString;
       }
-      return newString;
     },
+
     incr() {
       this.orederQuantity++;
     },
