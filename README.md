@@ -11,4 +11,7 @@ This project is a clone of websites like JustEat and Deliveroo. The costumer can
 Main technologies used are : HTML,CSS,JS,VUE for the Front=end e PHP,Laravel for the Back-end
 
 
+
+UI OF THE PROJECT
+
 ![booleat](https://user-images.githubusercontent.com/92406369/180457498-0365e26f-7c3e-4545-b8fc-57d46c8ac106.png)
