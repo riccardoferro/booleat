@@ -55,11 +55,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
-    {   
+    {
 
         $user = User::where('slug', $slug)->with('categories')->first();
 
-        $plates = $user->plates()->paginate(3);
+        $plates = $user->plates()->paginate(6);
 
         $result = ['results' => $user,'plates' => $plates , 'success' => true];
         return response()->json($result);

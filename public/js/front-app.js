@@ -5615,6 +5615,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FooterComponent",
   data: function data() {
@@ -37055,7 +37061,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".t4-bg-banner-info[data-v-d8e4eef0] {\n  background-image: url(\"/images/rider.png\");\n  background-size: cover;\n  background-position-y: center;\n  padding: 200px;\n}\n.t4-card-Info[data-v-d8e4eef0] {\n  background: rgba(0, 0, 0, 0.5);\n  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);\n  backdrop-filter: blur(18.5px);\n  -webkit-backdrop-filter: blur(18.5px);\n  border-radius: 25px;\n  border: 1px solid rgba(255, 255, 255, 0.18);\n  padding: 25px;\n  margin: 20px;\n}\na[data-v-d8e4eef0]:hover {\n  color: #fd7d2b;\n}", ""]);
+exports.push([module.i, ".t4-bg-banner-info[data-v-d8e4eef0] {\n  background-image: url(\"/images/rider.png\");\n  background-size: cover;\n  background-position-y: center;\n  padding: 100px;\n}\n.t4-card-Info[data-v-d8e4eef0] {\n  background: rgba(0, 0, 0, 0.5);\n  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);\n  backdrop-filter: blur(18.5px);\n  -webkit-backdrop-filter: blur(18.5px);\n  border-radius: 25px;\n  border: 1px solid rgba(255, 255, 255, 0.18);\n  padding: 25px;\n  margin: 20px;\n}\na[data-v-d8e4eef0]:hover {\n  color: #fd7d2b;\n}", ""]);
 
 // exports
 
@@ -69969,7 +69975,7 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "col-xxl-5 col-xl-6 col-lg-6 col-md-6 col-sm-8 col-11 t4-card-Info",
+              "col-xxl-5 col-xl-4 col-lg-6 col-md-7 col-sm-12 col-12 t4-card-Info",
           },
           [
             _c("h2", [_vm._v("Lavora con noi")]),
@@ -70297,32 +70303,39 @@ var staticRenderFns = [
         staticClass: "row mt-3 justify-content-center align-items-center pb-3",
       },
       [
-        _c("div", { staticClass: "col-2 t4-footer-logo" }, [
+        _c("div", { staticClass: "col-md-1 col-sm-2 col-2 t4-footer-logo" }, [
           _c("img", { attrs: { src: "/images/logo.png", alt: "" } }),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-4 text-center t4-orange-text" }, [
-          _c("i", { staticClass: "fa-brands fa-facebook" }),
-          _vm._v(" "),
-          _c("i", { staticClass: "fa-brands fa-twitter" }),
-          _vm._v(" "),
-          _c("i", { staticClass: "fa-brands fa-instagram" }),
-          _vm._v(" "),
-          _c("i", { staticClass: "fa-brands fa-linkedin" }),
-          _vm._v(" "),
-          _c("span", { staticClass: "white-text ms-4" }, [
-            _vm._v("© Team4 2022, all rights reserved\n        "),
-            _c(
-              "a",
-              { staticClass: "t4-circle-btn ms-4", attrs: { href: "#" } },
-              [
-                _c("img", {
-                  attrs: { src: "/images/up-arrow.png", alt: "arrow-up" },
-                }),
-              ]
-            ),
-          ]),
-        ]),
+        _c(
+          "div",
+          {
+            staticClass:
+              "\n        col-xxl-4 col-xl-4 col-lg-6 col-md-8 col-sm-10 col-12\n        text-center\n        t4-orange-text\n      ",
+          },
+          [
+            _c("i", { staticClass: "fa-brands fa-facebook" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "fa-brands fa-twitter" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "fa-brands fa-instagram" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "fa-brands fa-linkedin" }),
+            _vm._v(" "),
+            _c("span", { staticClass: "white-text ms-4" }, [
+              _vm._v("© Team4 2022, all rights reserved\n        "),
+              _c(
+                "a",
+                { staticClass: "t4-circle-btn ms-4", attrs: { href: "#" } },
+                [
+                  _c("img", {
+                    attrs: { src: "/images/up-arrow.png", alt: "arrow-up" },
+                  }),
+                ]
+              ),
+            ]),
+          ]
+        ),
       ]
     )
   },
